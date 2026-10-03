@@ -1,0 +1,27 @@
+# Robots.txt for https://rishabhsrivastava.in/
+User-agent: *
+Allow: /
+
+# Dedicated AI & Search Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://rishabhsrivastava.in/sitemap.xml
