@@ -232,43 +232,48 @@ class BlogEngine {
   }
 
   renderBlogGrid() {
-    const grid = document.getElementById('blog-cards-grid');
+    const grid = document.getElementById('blog-cards-grid') || document.getElementById('blog-posts-container');
     if (!grid) return;
 
     const items = this.getFilteredBlogs();
     if (items.length === 0) {
       grid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;" class="glass-card">
-          <p style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 8px;">[NO_ARTICLES_FOUND]</p>
-          <p style="color: var(--text-secondary);">No technical articles match your current search query or filter.</p>
+        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; background: var(--canvas-surface); border: var(--border-ink); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard);">
+          <p style="font-family: var(--font-mono); color: #18181b; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">[NO_ARTICLES_FOUND]</p>
+          <p style="color: var(--ink-secondary);">No technical articles match your current search query or filter.</p>
         </div>
       `;
       return;
     }
 
-    grid.innerHTML = items.map(blog => `
-      <article class="glass-card glare-effect blog-card" data-blog-id="${blog.id}">
-        <div class="blog-card-thumb">
-          <img src="${blog.cover}" alt="${this.escapeHtml(blog.title)}" loading="lazy">
-          <div class="project-overlay"></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-meta-top">
-            <span class="blog-cat-badge">${blog.category}</span>
-            <span>${blog.readTime}</span>
+    const headerPastels = ['var(--pastel-blue)', 'var(--pastel-mint)', 'var(--pastel-yellow)', 'var(--pastel-lavender)'];
+
+    grid.innerHTML = items.map((blog, idx) => {
+      const headerBg = headerPastels[idx % headerPastels.length];
+      return `
+        <div class="blog-memo-card" data-blog-id="${blog.id}" style="cursor: pointer;">
+          <div class="blog-memo-header" style="background: ${headerBg};">
+            <div class="mac-dots">
+              <span class="mac-dot red"></span>
+              <span class="mac-dot yellow"></span>
+              <span class="mac-dot green"></span>
+            </div>
+            <span class="neo-pill mint" style="padding: 2px 8px; font-size: 0.68rem;">${blog.category}</span>
           </div>
-          <h3 class="blog-card-title">${this.escapeHtml(blog.title)}</h3>
-          <p class="blog-card-excerpt">${this.escapeHtml(blog.excerpt)}</p>
-          <div class="blog-read-link">
-            <span>Read Deep Dive</span>
-            <span>→</span>
+          <div class="blog-memo-body">
+            <h3 class="blog-memo-title">${this.escapeHtml(blog.title)}</h3>
+            <p class="blog-memo-excerpt">${this.escapeHtml(blog.excerpt)}</p>
+            <div class="blog-memo-meta">
+              <span>${blog.date}</span>
+              <span class="neo-pill yellow" style="padding: 2px 8px; font-size: 0.68rem;">${blog.readTime} ↗</span>
+            </div>
           </div>
         </div>
-      </article>
-    `).join('');
+      `;
+    }).join('');
 
     // Attach click events to open reader
-    grid.querySelectorAll('.blog-card').forEach(card => {
+    grid.querySelectorAll('.blog-memo-card').forEach(card => {
       card.addEventListener('click', () => {
         const id = card.dataset.blogId;
         this.openReader(id);

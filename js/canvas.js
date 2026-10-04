@@ -25,10 +25,10 @@
   const particles = [];
 
   const colors = [
-    'rgba(0, 240, 255, 0.7)',   // Neon Cyan
-    'rgba(16, 185, 129, 0.6)',  // Emerald
-    'rgba(139, 92, 246, 0.65)', // Violet
-    'rgba(255, 255, 255, 0.4)'  // White star
+    'rgba(251, 208, 80, 0.65)',  // Warm Golden Yellow (Orange Yellow Crayola)
+    'rgba(218, 178, 77, 0.55)',  // Vegas Gold
+    'rgba(255, 255, 255, 0.35)', // Soft Star White
+    'rgba(251, 196, 52, 0.45)'   // Amber Glow
   ];
 
   class Particle {
@@ -94,7 +94,7 @@
     particles.push(new Particle());
   }
 
-  // Draw connecting laser filaments
+  // Draw connecting filaments
   function connectFilaments() {
     for (let a = 0; a < particles.length; a++) {
       for (let b = a + 1; b < particles.length; b++) {
@@ -107,7 +107,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[a].x, particles[a].y);
           ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.strokeStyle = `rgba(0, 240, 255, ${alpha * 0.18})`;
+          ctx.strokeStyle = `rgba(251, 208, 80, ${alpha * 0.14})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -123,7 +123,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[a].x, particles[a].y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(0, 240, 255, ${mAlpha * 0.35})`;
+          ctx.strokeStyle = `rgba(251, 208, 80, ${mAlpha * 0.28})`;
           ctx.lineWidth = 1.2;
           ctx.stroke();
         }
