@@ -18,7 +18,7 @@ import { isSoundEnabled, setSoundEnabled, playClickSound, playBeepSound } from '
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<TabType>('about');
-  const [theme, setTheme] = useState<ThemeType>('dark');
+  const [theme, setTheme] = useState<ThemeType>('light');
   const [soundActive, setSoundActive] = useState<boolean>(true);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [toastTimer, setToastTimer] = useState<NodeJS.Timeout | null>(null);
@@ -38,14 +38,15 @@ export default function HomePage() {
       setActiveTab(hash as TabType);
     }
 
-    // 2. Initial Theme
-    const storedTheme = localStorage.getItem('rishabh_portfolio_theme') as ThemeType | null;
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.body.className = storedTheme === 'light' ? 'light-canvas' : '';
-    } else {
+    // 2. Initial Theme: Default to White / Light Mode
+    const storedTheme = (localStorage.getItem('rishabh_portfolio_theme') ||
+      localStorage.getItem('rishabh_theme')) as ThemeType | null;
+    if (storedTheme === 'dark') {
       setTheme('dark');
       document.body.className = '';
+    } else {
+      setTheme('light');
+      document.body.className = 'light-canvas';
     }
 
     // 3. Audio state
@@ -88,6 +89,7 @@ export default function HomePage() {
     const nextTheme: ThemeType = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
     localStorage.setItem('rishabh_portfolio_theme', nextTheme);
+    localStorage.setItem('rishabh_theme', nextTheme);
     document.body.className = nextTheme === 'light' ? 'light-canvas' : '';
   };
 

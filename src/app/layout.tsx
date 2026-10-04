@@ -101,11 +101,25 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var theme = localStorage.getItem('rishabh_portfolio_theme') || localStorage.getItem('rishabh_theme') || 'light';
+                if (theme === 'dark') {
+                  document.documentElement.classList.remove('light-canvas');
+                } else {
+                  document.documentElement.classList.add('light-canvas');
+                }
+              } catch(e) {}
+            `
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="light-canvas">
         <CanvasBackground />
         {children}
       </body>

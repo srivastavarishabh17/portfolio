@@ -942,15 +942,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // KNOWLEDGE CHATOPS STUDIO & BLUEPRINT THEME CONTROLLER
   // =========================================================================
 
-  // Theme Toggle: Technical Blueprint Dark (Default) / Light Mode
+  // Theme Toggle: Light Mode (Default) / Technical Blueprint Dark Mode
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  const savedTheme = localStorage.getItem('rishabh_theme') || 'dark';
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-canvas');
-    if (themeToggleBtn) themeToggleBtn.innerHTML = '<span>🌙 Dark Mode</span>';
-  } else {
+  const savedTheme = localStorage.getItem('rishabh_theme') || localStorage.getItem('rishabh_portfolio_theme') || 'light';
+  if (savedTheme === 'dark') {
     document.body.classList.remove('light-canvas');
     if (themeToggleBtn) themeToggleBtn.innerHTML = '<span>☀️ Light Mode</span>';
+  } else {
+    document.body.classList.add('light-canvas');
+    if (themeToggleBtn) themeToggleBtn.innerHTML = '<span>🌙 Dark Mode</span>';
   }
 
   if (themeToggleBtn) {
@@ -958,6 +958,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('light-canvas');
       const isLight = document.body.classList.contains('light-canvas');
       localStorage.setItem('rishabh_theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('rishabh_portfolio_theme', isLight ? 'light' : 'dark');
       themeToggleBtn.innerHTML = isLight ? '<span>🌙 Dark Mode</span>' : '<span>☀️ Light Mode</span>';
       if (window.sfx) window.sfx.playClick();
       if (window.showToast) window.showToast(isLight ? 'Light Blueprint Canvas Active' : 'Dark Obsidian Theme Active');
