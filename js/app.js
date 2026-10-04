@@ -676,34 +676,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Interactive Executive Outfit Switcher
-  const outfitBtns = document.querySelectorAll('.avatar-outfit-btn, .switcher-pill');
+  // Single High-Resolution Executive Portrait Initialized
   const heroPortrait = document.getElementById('hero-portrait-img');
-  const outfitMap = {
-    navy: 'assets/images/rishabh-executive-navy.png',
-    suit: 'assets/images/rishabh-executive-suit.png',
-    charcoal: 'assets/images/rishabh-executive-charcoal.png'
-  };
-
-  outfitBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      outfitBtns.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      if (window.sfx) window.sfx.playClick();
-
-      const outfitKey = btn.dataset.outfit;
-      const newSrc = btn.dataset.img || outfitMap[outfitKey];
-      if (heroPortrait && newSrc) {
-        heroPortrait.style.opacity = '0';
-        heroPortrait.style.transform = 'scale(0.96)';
-        setTimeout(() => {
-          heroPortrait.src = newSrc;
-          heroPortrait.style.opacity = '1';
-          heroPortrait.style.transform = 'scale(1)';
-        }, 160);
-      }
-    });
-  });
+  if (heroPortrait) {
+    heroPortrait.style.opacity = '1';
+  }
 
   // Custom Cursor
   const cursorDot = document.querySelector('.cursor-dot');
@@ -965,22 +942,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // KNOWLEDGE CHATOPS STUDIO & BLUEPRINT THEME CONTROLLER
   // =========================================================================
 
-  // Theme Toggle: Technical Blueprint Light / Dark Mode
+  // Theme Toggle: Technical Blueprint Dark (Default) / Light Mode
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  const savedTheme = localStorage.getItem('rishabh_theme') || 'light';
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-blueprint');
-    if (themeToggleBtn) themeToggleBtn.innerHTML = '☀️ Light Blueprint';
+  const savedTheme = localStorage.getItem('rishabh_theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-canvas');
+    if (themeToggleBtn) themeToggleBtn.innerHTML = '<span>🌙 Dark Mode</span>';
+  } else {
+    document.body.classList.remove('light-canvas');
+    if (themeToggleBtn) themeToggleBtn.innerHTML = '<span>☀️ Light Mode</span>';
   }
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-blueprint');
-      const isDark = document.body.classList.contains('dark-blueprint');
-      localStorage.setItem('rishabh_theme', isDark ? 'dark' : 'light');
-      themeToggleBtn.innerHTML = isDark ? '☀️ Light Blueprint' : '🌙 Dark Mode';
+      document.body.classList.toggle('light-canvas');
+      const isLight = document.body.classList.contains('light-canvas');
+      localStorage.setItem('rishabh_theme', isLight ? 'light' : 'dark');
+      themeToggleBtn.innerHTML = isLight ? '<span>🌙 Dark Mode</span>' : '<span>☀️ Light Mode</span>';
       if (window.sfx) window.sfx.playClick();
-      if (window.showToast) window.showToast(isDark ? 'Dark Blueprint Mode Active' : 'Light Canvas Mode Active');
+      if (window.showToast) window.showToast(isLight ? 'Light Blueprint Canvas Active' : 'Dark Obsidian Theme Active');
     });
   }
 

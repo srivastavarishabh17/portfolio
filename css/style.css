@@ -9,45 +9,45 @@
    01. DESIGN TOKENS & CSS VARIABLES
    ----------------------------------------------------------------------------- */
 :root {
-  /* Canvas Backgrounds */
-  --canvas-bg: #faf8f5;
-  --canvas-surface: #ffffff;
-  --canvas-panel: #f5f3ed;
-  --canvas-subtle: #eae7dd;
+  /* Canvas Backgrounds: Sleek Obsidian & Deep Tech Slate */
+  --canvas-bg: #090d16;
+  --canvas-surface: #0f1523;
+  --canvas-panel: #161e31;
+  --canvas-subtle: #1e2942;
 
   /* Ink & Typography */
-  --ink-primary: #18181b;
-  --ink-secondary: #3f3f46;
-  --ink-muted: #71717a;
-  --ink-inverted: #ffffff;
+  --ink-primary: #f8fafc;
+  --ink-secondary: #94a3b8;
+  --ink-muted: #64748b;
+  --ink-inverted: #090d16;
 
-  /* Neo-Brutalist Pastel Accents (From Architecture Blueprint) */
-  --pastel-mint: #bbf7d0;       /* #86efac active */
-  --pastel-mint-dark: #15803d;
-  --pastel-blue: #bfdbfe;       /* #93c5fd active */
-  --pastel-blue-dark: #1d4ed8;
-  --pastel-yellow: #fef08a;     /* #fde047 active */
-  --pastel-yellow-dark: #a16207;
-  --pastel-lavender: #ddd6fe;   /* #c4b5fd active */
-  --pastel-lavender-dark: #6d28d9;
-  --pastel-coral: #fecaca;      /* #f87171 active */
-  --pastel-coral-dark: #b91c1c;
-  --pastel-peach: #fed7aa;      /* #fb923c active */
-  --pastel-peach-dark: #c2410c;
+  /* Vibrant Cyber Neo-Brutalist Accents */
+  --pastel-mint: #064e3b;
+  --pastel-mint-dark: #34d399;
+  --pastel-blue: #0c4a6e;
+  --pastel-blue-dark: #38bdf8;
+  --pastel-yellow: #422006;
+  --pastel-yellow-dark: #facc15;
+  --pastel-lavender: #3b0764;
+  --pastel-lavender-dark: #c084fc;
+  --pastel-coral: #4c0519;
+  --pastel-coral-dark: #f87171;
+  --pastel-peach: #431407;
+  --pastel-peach-dark: #fb923c;
 
   /* Window Dots */
-  --dot-red: #ff5f56;
-  --dot-yellow: #ffbd2e;
-  --dot-green: #27c93f;
+  --dot-red: #ef4444;
+  --dot-yellow: #eab308;
+  --dot-green: #10b981;
 
   /* Borders & Shadows */
-  --border-ink: 2.5px solid #18181b;
-  --border-ink-thin: 1.5px solid #18181b;
-  --border-dashed: 2px dashed #18181b;
-  --shadow-hard: 5px 5px 0px #18181b;
-  --shadow-hard-lg: 7px 7px 0px #18181b;
-  --shadow-hard-sm: 3px 3px 0px #18181b;
-  --shadow-hard-pressed: 1px 1px 0px #18181b;
+  --border-ink: 2px solid #23314d;
+  --border-ink-thin: 1.5px solid #23314d;
+  --border-dashed: 2px dashed #334466;
+  --shadow-hard: 5px 5px 0px #000000;
+  --shadow-hard-lg: 7px 7px 0px #000000;
+  --shadow-hard-sm: 3px 3px 0px #000000;
+  --shadow-hard-pressed: 1px 1px 0px #000000;
 
   /* Radii */
   --radius-xl: 18px;
@@ -66,37 +66,37 @@
   --transition-base: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Dark Blueprint Theme Mode */
-body.dark-blueprint {
-  --canvas-bg: #0f1218;
-  --canvas-surface: #181d26;
-  --canvas-panel: #1f2532;
-  --canvas-subtle: #293142;
+/* Optional Light Canvas Mode (Toggleable) */
+body.light-canvas {
+  --canvas-bg: #faf8f5;
+  --canvas-surface: #ffffff;
+  --canvas-panel: #f5f3ed;
+  --canvas-subtle: #eae7dd;
 
-  --ink-primary: #f8fafc;
-  --ink-secondary: #cbd5e1;
-  --ink-muted: #94a3b8;
-  --ink-inverted: #0f1218;
+  --ink-primary: #18181b;
+  --ink-secondary: #3f3f46;
+  --ink-muted: #71717a;
+  --ink-inverted: #ffffff;
 
-  --border-ink: 2.5px solid #f8fafc;
-  --border-ink-thin: 1.5px solid #f8fafc;
-  --border-dashed: 2px dashed #94a3b8;
-  --shadow-hard: 5px 5px 0px #000000;
-  --shadow-hard-lg: 7px 7px 0px #000000;
-  --shadow-hard-sm: 3px 3px 0px #000000;
+  --border-ink: 2.5px solid #18181b;
+  --border-ink-thin: 1.5px solid #18181b;
+  --border-dashed: 2px dashed #18181b;
+  --shadow-hard: 5px 5px 0px #18181b;
+  --shadow-hard-lg: 7px 7px 0px #18181b;
+  --shadow-hard-sm: 3px 3px 0px #18181b;
 
-  --pastel-mint: #1e3a2b;
-  --pastel-mint-dark: #86efac;
-  --pastel-blue: #1e2d42;
-  --pastel-blue-dark: #93c5fd;
-  --pastel-yellow: #3e381b;
-  --pastel-yellow-dark: #fde047;
-  --pastel-lavender: #2d2642;
-  --pastel-lavender-dark: #c4b5fd;
-  --pastel-coral: #3d1f22;
-  --pastel-coral-dark: #fca5a5;
-  --pastel-peach: #3f2918;
-  --pastel-peach-dark: #fdba74;
+  --pastel-mint: #bbf7d0;
+  --pastel-mint-dark: #15803d;
+  --pastel-blue: #bfdbfe;
+  --pastel-blue-dark: #1d4ed8;
+  --pastel-yellow: #fef08a;
+  --pastel-yellow-dark: #a16207;
+  --pastel-lavender: #ddd6fe;
+  --pastel-lavender-dark: #6d28d9;
+  --pastel-coral: #fecaca;
+  --pastel-coral-dark: #b91c1c;
+  --pastel-peach: #fed7aa;
+  --pastel-peach-dark: #c2410c;
 }
 
 /* -----------------------------------------------------------------------------
@@ -121,15 +121,15 @@ body {
   min-height: 100vh;
   position: relative;
   background-color: var(--canvas-bg);
-  background-image: radial-gradient(#d4d0c7 1.25px, transparent 1.25px);
+  background-image: radial-gradient(#1f293d 1.25px, transparent 1.25px);
   background-size: 22px 22px;
   background-position: 0 0;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
-body.dark-blueprint {
-  background-image: radial-gradient(#272f3e 1.25px, transparent 1.25px);
+body.light-canvas {
+  background-image: radial-gradient(#d4d0c7 1.25px, transparent 1.25px);
 }
 
 ::selection {
