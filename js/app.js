@@ -127,8 +127,8 @@ DEVOPS     : Jenkins, GitHub Actions, Docker, AWS (EC2/S3), VPS, Linux, Nginx
 INTEGRATION: Generative AI (Gemini/OpenAI), Chart Automation, Payment Gateways
 GROWTH     : SEO, AEO, GEO (Generative Engine Optimization), Core Web Vitals 100/100`,
 
-  experience: `1. SRC Cyber Solutions LLP — Associate Software Developer [May 2023 - Present]
-   • Scaled enterprise CRM & EDM platform on Prime Platform using Node.js & Next.js.
+  experience: `1. Lead Product Architect & Senior Engineer [2022 - Present]
+   • Scaled enterprise CRM, EDM & cloud communication suites on Node.js & Next.js.
    • Boosted website discoverability by 350% across US & India via SEO/AEO/GEO.
    • Implemented automated CI/CD pipelines via Jenkins & GitHub Actions on VPS.
    • Integrated GenAI model inference for dynamic automated client reporting.
@@ -148,7 +148,7 @@ GROWTH     : SEO, AEO, GEO (Generative Engine Optimization), Core Web Vitals 100
    • accounting.aozo.in: Financial Accounting & Billing Engine
    • desk.aozo.in      : Customer Support Desk & Ticket API
 
-2. PRIME PLATFORM CRM & EDM ENGINE [SRC Cyber Solutions]
+2. PRIME PLATFORM CRM & EDM ENGINE [Enterprise Product]
    • Next.js + Node.js Enterprise Scale | +350% Discoverability | CI/CD Pipelines
 
 3. MESSEGY OMNICHANNEL PLATFORM [messegy.com]
@@ -212,10 +212,10 @@ const CASE_STUDIES = {
     category: 'Enterprise CRM & Full Stack',
     copyright: 'CLIENT PROPRIETARY / NDA COMPLIANT',
     copyrightClass: 'nda',
-    copyrightNotice: 'Architectural overview displayed with permission. Codebase remains the exclusive intellectual property of SRC Cyber Solutions LLP. Core concepts demonstrate enterprise design mastery.',
-    client: 'SRC Cyber Solutions LLP',
-    role: 'Associate Software Developer (Core Architecture & Platform Lead)',
-    timeline: 'May 2023 - Present',
+    copyrightNotice: 'Enterprise CRM & Electronic Direct Mail dispatch architecture designed for high-concurrency transactional pipelines.',
+    client: 'Enterprise Commercial Suite',
+    role: 'Principal Architecture & Platform Lead',
+    timeline: '2023 - Present',
     stack: ['Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'Jenkins', 'GitHub Actions', 'TailwindCSS'],
     metrics: [
       { label: 'Release Cycle Time', val: '-60%' },
@@ -968,7 +968,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CHATOPS_KNOWLEDGE = {
     'architecture': {
       prompt: "How does Rishabh architect high-concurrency systems?",
-      answer: "Rishabh architectures services using decoupled Next.js 14 edge SSR frontends, asynchronous Node.js/FastAPI gateways, BullMQ + Redis pub-sub message queues, and partitioned PostgreSQL databases. At SRC Cyber Solutions and Aozo, this stack processes 50,000+ operations/hr with 99.98% uptime SLA.",
+      answer: "Rishabh architectures services using decoupled Next.js 14 edge SSR frontends, asynchronous Node.js/FastAPI gateways, BullMQ + Redis pub-sub message queues, and partitioned PostgreSQL databases. Across high-concurrency production deployments, this stack processes 50,000+ operations/hr with 99.98% uptime SLA.",
       citations: [
         { name: "Aozo_Architecture_Spec.pdf", type: "pdf", pages: "pp. 14-22" },
         { name: "PostgreSQL_Sharding_Plan.docx", type: "docx", pages: "Section 4.2" }
@@ -1067,7 +1067,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chatInput.value = '';
 
     const lower = query.toLowerCase();
-    let answer = "Rishabh has engineered 16+ production architectures including Aozo Enterprise Cloud Suite, Prime CRM (SRC Cyber Solutions), Messegy Omnichannel, and Ecomify.io. Reach out directly via WhatsApp at +91 7037564392 to discuss contracts, architecture reviews, or full-time engagements.";
+    let answer = "Rishabh has engineered 16+ production architectures including Aozo Enterprise Cloud Suite, Prime CRM, Messegy Omnichannel, and Ecomify.io. Reach out directly via WhatsApp at +91 7037564392 to discuss contracts, architecture reviews, or full-time engagements.";
     let citations = [{ name: "Rishabh_Master_Portfolio_2026.pdf", type: "pdf", pages: "All 16 Projects" }];
 
     if (lower.includes('rag') || lower.includes('ai') || lower.includes('llm') || lower.includes('search')) {
