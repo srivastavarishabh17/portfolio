@@ -1,6 +1,6 @@
-export type TabType = 'about' | 'resume' | 'portfolio' | 'terminal' | 'architecture' | 'chatops' | 'blog';
+export type TabType = 'about' | 'resume' | 'portfolio' | 'blog' | 'terminal' | 'contact';
 
-export type ThemeType = 'dark' | 'cyber' | 'light';
+export type ThemeType = 'dark' | 'light';
 
 export interface ProjectMetric {
   label: string;

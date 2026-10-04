@@ -1,159 +1,146 @@
 'use client';
 
 import React from 'react';
-import { TIMELINE_ROLES, SKILL_CATEGORIES, EDUCATION_DATA, CERTIFICATIONS_DATA } from '@/data/resume';
-import { Download, Award, GraduationCap, Briefcase } from 'lucide-react';
-import { playClickSound } from '@/utils/audio';
 
-export const ResumeTab: React.FC = () => {
+interface ResumeTabProps {
+  isActive: boolean;
+}
+
+export const ResumeTab: React.FC<ResumeTabProps> = ({ isActive }) => {
   return (
-    <article className="resume-article animate-fade-in">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
-        <h2 className="section-headline" style={{ margin: 0 }}>Resume &amp; Track Record</h2>
-        <a
-          href="/rishabh_srivastava_resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="neo-btn blue"
-          onClick={playClickSound}
-        >
-          <Download size={15} />
-          <span>Download PDF Resume</span>
-        </a>
-      </div>
+    <article className={`resume ${isActive ? 'active' : ''}`} data-page="resume">
+      <h2 className="section-headline">Resume &amp; Track Record</h2>
 
       {/* Experience Timeline */}
-      <h3 className="section-headline" style={{ fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <Briefcase size={18} color="#38bdf8" />
-        <span>Production Experience Timeline</span>
-      </h3>
-
-      <div className="timeline-neo-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '32px' }}>
-        {TIMELINE_ROLES.map((item, idx) => (
-          <div key={idx} className="timeline-neo-card" style={{ border: 'var(--border-ink)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas-surface)', boxShadow: 'var(--shadow-hard)', overflow: 'hidden' }}>
-            <div
-              className="timeline-card-header"
-              style={{
-                background: item.pillColor === 'mint' ? 'var(--pastel-mint)' : 'var(--pastel-yellow)',
-                padding: '12px 18px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                borderBottom: 'var(--border-ink)'
-              }}
-            >
-              <span className="timeline-role" style={{ fontWeight: 800, color: '#000000', fontSize: '0.92rem' }}>
-                {item.role}
-              </span>
-              <span className="timeline-period-pill" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 800, background: '#000000', color: '#ffffff', padding: '3px 10px', borderRadius: 'var(--radius-pill)' }}>
-                {item.period}
-              </span>
-            </div>
-
-            <div className="timeline-card-body" style={{ padding: '18px' }}>
-              <div className="timeline-company-row" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                <span className={`neo-pill ${item.pillColor}`} style={{ fontWeight: 700 }}>
-                  {item.company}
-                </span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--ink-muted)', fontFamily: 'var(--font-mono)' }}>
-                  {item.locationOrEcosystem}
-                </span>
-              </div>
-
-              <ul className="timeline-bullet-list" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {item.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="timeline-bullet" style={{ fontSize: '0.88rem', color: 'var(--ink-secondary)', lineHeight: '1.6', position: 'relative', paddingLeft: '18px' }}>
-                    <span style={{ position: 'absolute', left: 0, top: '2px', color: '#00f0ff', fontWeight: 800 }}>•</span>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <div className="timeline-neo-container">
+        {/* Role 1: Principal Product Architect */}
+        <div className="timeline-neo-card">
+          <div className="timeline-card-header" style={{ background: 'var(--pastel-mint)' }}>
+            <span className="timeline-role">Principal Product Architect &amp; Core Engineer</span>
+            <span className="timeline-period-pill">2022 — Present</span>
           </div>
-        ))}
+          <div className="timeline-card-body">
+            <div className="timeline-company-row">
+              <span className="neo-pill mint">Proprietary SaaS &amp; Cloud Products</span>
+              <span>• Aozo Ecosystem &amp; Messegy</span>
+            </div>
+            <ul className="timeline-bullet-list">
+              <li className="timeline-bullet">
+                Architected and engineered enterprise SaaS suites including Aozo Cloud (6 integrated business micro-frontends) and Messegy Omnichannel messaging platform.
+              </li>
+              <li className="timeline-bullet">
+                Built asynchronous Redis + BullMQ message relays handling 50,000+ transactional dispatches per hour with sub-25ms sync latency.
+              </li>
+              <li className="timeline-bullet">
+                Implemented automated CI/CD deployment pipelines with GitHub Actions and Docker, slashing release cycles by 60%.
+              </li>
+              <li className="timeline-bullet">
+                Maintained 99.98% uptime SLA across high-throughput transactional database clusters and caching layers.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Role 2: Independent Architect */}
+        <div className="timeline-neo-card">
+          <div className="timeline-card-header" style={{ background: 'var(--pastel-yellow)' }}>
+            <span className="timeline-role">Enterprise Consultant &amp; Freelance Engineer</span>
+            <span className="timeline-period-pill">2021 — 2022</span>
+          </div>
+          <div className="timeline-card-body">
+            <div className="timeline-company-row">
+              <span className="neo-pill yellow">Global D2C, FinTech &amp; HealthTech</span>
+              <span>• Remote</span>
+            </div>
+            <ul className="timeline-bullet-list">
+              <li className="timeline-bullet">
+                Delivered headless eCommerce platforms for Ecomify.io and Saattvik Natural with sub-second checkout speeds and atomic stock locking.
+              </li>
+              <li className="timeline-bullet">
+                Built HIPAA-compliant telemedicine platform MyAyushClinic connecting practitioners and patients with encrypted consultations.
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      {/* Verified Core Competencies */}
+      {/* Skills Bento Grid */}
       <h3 className="section-headline">Verified Core Competencies</h3>
-      <div className="skills-bento-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '32px' }}>
-        {SKILL_CATEGORIES.map((cat, idx) => (
-          <div key={idx} className="skill-category-card" style={{ border: 'var(--border-ink)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas-surface)', boxShadow: 'var(--shadow-hard)', overflow: 'hidden' }}>
-            <div
-              className="skill-header"
-              style={{
-                background: cat.headerColor,
-                padding: '10px 16px',
-                fontFamily: 'var(--font-mono)',
-                fontWeight: 800,
-                fontSize: '0.75rem',
-                color: '#000000',
-                letterSpacing: '0.05em',
-                borderBottom: 'var(--border-ink)'
-              }}
-            >
-              {cat.title}
-            </div>
-
-            <div className="skill-chips-body" style={{ padding: '16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {cat.skills.map((skill, sIdx) => (
-                <span
-                  key={sIdx}
-                  className={`tech-chip ${skill.isHighlight ? 'highlight' : ''}`}
-                  style={{
-                    padding: '5px 10px',
-                    borderRadius: 'var(--radius-pill)',
-                    fontSize: '0.78rem',
-                    fontWeight: skill.isHighlight ? 700 : 500,
-                    border: 'var(--border-ink)',
-                    background: skill.isHighlight ? 'var(--pastel-blue)' : 'var(--canvas-panel)',
-                    color: skill.isHighlight ? '#000000' : 'var(--ink-primary)',
-                    fontFamily: 'var(--font-mono)'
-                  }}
-                >
-                  {skill.name}
-                </span>
-              ))}
-            </div>
+      <div className="skills-bento-grid">
+        <div className="skill-category-card">
+          <div className="skill-header" style={{ background: 'var(--pastel-blue)' }}>
+            FRONTEND ARCHITECTURE
           </div>
-        ))}
+          <div className="skill-chips-body">
+            <span className="tech-chip highlight">Next.js 14 / SSR</span>
+            <span className="tech-chip highlight">React 19</span>
+            <span className="tech-chip">TypeScript</span>
+            <span className="tech-chip">Tailwind CSS</span>
+            <span className="tech-chip">Zustand / Redux</span>
+            <span className="tech-chip">Web Audio API</span>
+            <span className="tech-chip">Core Web Vitals 100</span>
+          </div>
+        </div>
+
+        <div className="skill-category-card">
+          <div className="skill-header" style={{ background: 'var(--pastel-mint)' }}>
+            BACKEND &amp; CLOUD
+          </div>
+          <div className="skill-chips-body">
+            <span className="tech-chip highlight">Node.js / Express</span>
+            <span className="tech-chip highlight">FastAPI / Python</span>
+            <span className="tech-chip">BullMQ Queues</span>
+            <span className="tech-chip">WebSockets</span>
+            <span className="tech-chip">Docker Containers</span>
+            <span className="tech-chip">AWS ECS / S3</span>
+            <span className="tech-chip">Azure Container Apps</span>
+          </div>
+        </div>
+
+        <div className="skill-category-card">
+          <div className="skill-header" style={{ background: 'var(--pastel-lavender)' }}>
+            DATABASES &amp; AI
+          </div>
+          <div className="skill-chips-body">
+            <span className="tech-chip highlight">PostgreSQL</span>
+            <span className="tech-chip highlight">Redis / In-Memory</span>
+            <span className="tech-chip">MongoDB</span>
+            <span className="tech-chip">Azure AI Search</span>
+            <span className="tech-chip">Azure OpenAI / Gemini</span>
+            <span className="tech-chip">RAG Pipelines</span>
+            <span className="tech-chip">Vector Embeddings</span>
+          </div>
+        </div>
       </div>
 
       {/* Education & Certifications */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
-        {/* Education */}
-        <div style={{ border: 'var(--border-ink)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas-surface)', padding: '20px', boxShadow: 'var(--shadow-hard)' }}>
-          <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.92rem', fontWeight: 800, color: 'var(--ink-primary)', marginBottom: '14px', fontFamily: 'var(--font-mono)' }}>
-            <GraduationCap size={18} color="#38bdf8" />
-            ACADEMIC QUALIFICATIONS
-          </h4>
-          {EDUCATION_DATA.map((edu, idx) => (
-            <div key={idx}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                <span style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--ink-primary)' }}>{edu.degree}</span>
-                <span className="neo-pill mint" style={{ fontSize: '0.68rem', padding: '2px 8px' }}>{edu.pill}</span>
-              </div>
-              <p style={{ fontSize: '0.85rem', color: 'var(--ink-secondary)', marginBottom: '4px' }}>{edu.institution}</p>
-              <p style={{ fontSize: '0.78rem', color: 'var(--ink-muted)', fontFamily: 'var(--font-mono)' }}>{edu.period} • {edu.location}</p>
-            </div>
-          ))}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '24px' }}>
+        <div className="timeline-neo-card">
+          <div className="timeline-card-header" style={{ background: 'var(--pastel-yellow)' }}>
+            <span className="timeline-role" style={{ fontSize: '1rem' }}>Education</span>
+            <span className="timeline-period-pill">B.Tech (EEE)</span>
+          </div>
+          <div className="timeline-card-body">
+            <p style={{ fontWeight: 700, color: 'var(--ink-primary)', marginBottom: '4px' }}>
+              Dr. A.P.J. Abdul Kalam Technical University (AKTU)
+            </p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--ink-secondary)' }}>
+              Bachelor of Technology in Electrical and Electronics &amp; Engineering. Strong foundation in distributed systems, algorithms, and database design.
+            </p>
+          </div>
         </div>
 
-        {/* Certifications */}
-        <div style={{ border: 'var(--border-ink)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas-surface)', padding: '20px', boxShadow: 'var(--shadow-hard)' }}>
-          <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.92rem', fontWeight: 800, color: 'var(--ink-primary)', marginBottom: '14px', fontFamily: 'var(--font-mono)' }}>
-            <Award size={18} color="#facc15" />
-            PROFESSIONAL CREDENTIALS
-          </h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {CERTIFICATIONS_DATA.map((cert, idx) => (
-              <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: idx < CERTIFICATIONS_DATA.length - 1 ? '1px dashed var(--canvas-subtle)' : 'none', paddingBottom: '8px' }}>
-                <div>
-                  <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--ink-primary)' }}>{cert.title}</p>
-                  <p style={{ fontSize: '0.76rem', color: 'var(--ink-muted)', fontFamily: 'var(--font-mono)' }}>{cert.issuer} • {cert.year}</p>
-                </div>
-                <span className="neo-pill blue" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{cert.credentialId}</span>
-              </div>
-            ))}
+        <div className="timeline-neo-card">
+          <div className="timeline-card-header" style={{ background: 'var(--pastel-coral)' }}>
+            <span className="timeline-role" style={{ fontSize: '1rem' }}>Certifications</span>
+            <span className="timeline-period-pill">Verified</span>
+          </div>
+          <div className="timeline-card-body">
+            <ul className="timeline-bullet-list">
+              <li className="timeline-bullet">Full Stack Web Architecture &amp; Microservices</li>
+              <li className="timeline-bullet">Generative AI Integration &amp; Function Calling (OpenAI &amp; Google)</li>
+              <li className="timeline-bullet">Advanced PostgreSQL Indexing &amp; Query Optimization</li>
+            </ul>
           </div>
         </div>
       </div>

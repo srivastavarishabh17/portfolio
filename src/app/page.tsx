@@ -1,31 +1,39 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { TabType, ThemeType, ProjectCaseStudy } from '@/types';
+import { TabType, ThemeType, ProjectCaseStudy, BlogArticle } from '@/types';
 import { Sidebar } from '@/components/Sidebar';
 import { Navbar } from '@/components/Navbar';
 import { AboutTab } from '@/components/AboutTab';
 import { ResumeTab } from '@/components/ResumeTab';
 import { PortfolioTab } from '@/components/PortfolioTab';
-import { TerminalTab } from '@/components/TerminalTab';
-import { ArchitectureTab } from '@/components/ArchitectureTab';
-import { ChatOpsTab } from '@/components/ChatOpsTab';
 import { BlogTab } from '@/components/BlogTab';
+import { TerminalTab } from '@/components/TerminalTab';
+import { ContactTab } from '@/components/ContactTab';
 import { CaseStudyModal } from '@/components/CaseStudyModal';
+import { BlogModals } from '@/components/BlogModals';
 import { PROJECTS_DATA } from '@/data/projects';
-import { isSoundEnabled, setSoundEnabled } from '@/utils/audio';
+import { INITIAL_ARTICLES } from '@/data/articles';
+import { isSoundEnabled, setSoundEnabled, playClickSound, playBeepSound } from '@/utils/audio';
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<TabType>('about');
   const [theme, setTheme] = useState<ThemeType>('dark');
   const [soundActive, setSoundActive] = useState<boolean>(true);
-  const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy | null>(null);
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [toastTimer, setToastTimer] = useState<NodeJS.Timeout | null>(null);
 
-  // Initialize hash navigation and theme from localStorage
+  // Modals state
+  const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy | null>(null);
+  const [readingArticle, setReadingArticle] = useState<BlogArticle | null>(null);
+  const [isWritingBlog, setIsWritingBlog] = useState<boolean>(false);
+  const [blogArticles, setBlogArticles] = useState<BlogArticle[]>(INITIAL_ARTICLES);
+
+  // Initialize hash navigation, theme, sound
   useEffect(() => {
     // 1. Initial Hash
     const hash = window.location.hash.replace('#', '').trim().toLowerCase();
-    const validTabs: TabType[] = ['about', 'resume', 'portfolio', 'terminal', 'architecture', 'chatops', 'blog'];
+    const validTabs: TabType[] = ['about', 'resume', 'portfolio', 'blog', 'terminal', 'contact'];
     if (validTabs.includes(hash as TabType)) {
       setActiveTab(hash as TabType);
     }
@@ -54,7 +62,18 @@ export default function HomePage() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  const triggerToast = (msg: string) => {
+    setToastMsg(msg);
+    playBeepSound(700, 'sine', 0.08);
+    if (toastTimer) clearTimeout(toastTimer);
+    const timer = setTimeout(() => {
+      setToastMsg(null);
+    }, 3500);
+    setToastTimer(timer);
+  };
+
   const handleTabChange = (tab: TabType) => {
+    playClickSound();
     setActiveTab(tab);
     if (window.history.replaceState) {
       window.history.replaceState(null, '', `#${tab}`);
@@ -65,6 +84,7 @@ export default function HomePage() {
   };
 
   const handleThemeToggle = () => {
+    playClickSound();
     const nextTheme: ThemeType = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
     localStorage.setItem('rishabh_portfolio_theme', nextTheme);
@@ -75,79 +95,91 @@ export default function HomePage() {
     const next = !soundActive;
     setSoundActive(next);
     setSoundEnabled(next);
+    if (next) {
+      playBeepSound(440, 'sine', 0.08);
+      triggerToast('Audio Feedback Enabled');
+    } else {
+      triggerToast('Audio Feedback Muted');
+    }
+  };
+
+  const handleOpenCaseStudy = (projectId: string) => {
+    const found = PROJECTS_DATA.find((p) => p.id === projectId) || null;
+    setSelectedProject(found);
+  };
+
+  const handlePublishBlog = (newArticle: BlogArticle) => {
+    setBlogArticles((prev) => [newArticle, ...prev]);
+    triggerToast(`Published live: "${newArticle.title}"`);
   };
 
   return (
-    <div className="portfolio-app-root" style={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <main
-        style={{
-          width: '100%',
-          maxWidth: '100%',
-          margin: 0,
-          padding: '24px 32px 60px',
-          display: 'grid',
-          gridTemplateColumns: 'minmax(280px, 340px) minmax(0, 1fr)',
-          gap: '28px',
-          alignItems: 'start'
-        }}
-      >
-        {/* Left Profile Sidebar */}
-        <Sidebar />
+    <>
+      <main>
+        {/* Left Neo-Brutalist Sidebar */}
+        <Sidebar soundActive={soundActive} onToggleSound={handleSoundToggle} />
 
-        {/* Right Main Content Area */}
-        <div className="main-content-panel" style={{ minWidth: 0, width: '100%' }}>
-          {/* Top Sticky Navbar */}
+        {/* Right Main Content */}
+        <div className="main-content">
+          {/* Top Neo-Navbar */}
           <Navbar
             activeTab={activeTab}
             onTabChange={handleTabChange}
             theme={theme}
-            onThemeToggle={handleThemeToggle}
-            soundEnabled={soundActive}
-            onSoundToggle={handleSoundToggle}
+            onToggleTheme={handleThemeToggle}
           />
 
-          {/* Active Tab View */}
-          <section className="tab-content-container" style={{ minHeight: '650px' }}>
-            {activeTab === 'about' && <AboutTab onNavigate={handleTabChange} />}
-            {activeTab === 'resume' && <ResumeTab />}
-            {activeTab === 'portfolio' && (
-              <PortfolioTab
-                projects={PROJECTS_DATA}
-                onOpenCaseStudy={(proj) => setSelectedProject(proj)}
-              />
-            )}
-            {activeTab === 'terminal' && <TerminalTab />}
-            {activeTab === 'architecture' && <ArchitectureTab />}
-            {activeTab === 'chatops' && <ChatOpsTab />}
-            {activeTab === 'blog' && <BlogTab />}
-          </section>
+          {/* Tab 1: About (Includes Knowledge ChatOps & Capabilities) */}
+          <AboutTab
+            isActive={activeTab === 'about'}
+            onNavigate={handleTabChange}
+            onShowToast={triggerToast}
+          />
 
-          {/* Modern Footer */}
-          <footer
-            style={{
-              marginTop: '40px',
-              padding: '20px 24px',
-              background: 'var(--canvas-surface)',
-              border: 'var(--border-ink)',
-              borderRadius: 'var(--radius-lg)',
-              boxShadow: 'var(--shadow-hard-sm)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '12px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.78rem',
-              color: 'var(--ink-muted)'
+          {/* Tab 2: Resume */}
+          <ResumeTab isActive={activeTab === 'resume'} />
+
+          {/* Tab 3: Portfolio (All 16 Production Architectures) */}
+          <PortfolioTab
+            isActive={activeTab === 'portfolio'}
+            onOpenCaseStudy={handleOpenCaseStudy}
+          />
+
+          {/* Tab 4: Blog */}
+          <BlogTab
+            isActive={activeTab === 'blog'}
+            articles={blogArticles}
+            onOpenReader={(article) => {
+              playClickSound();
+              setReadingArticle(article);
             }}
-          >
-            <div>
-              <span>© {new Date().getFullYear()} Rishabh Srivastava. Authored with Next.js 14 &amp; TypeScript.</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#34d399', display: 'inline-block' }}></span>
-              <span>NODE: ONLINE • 99.98% SLA</span>
-            </div>
+            onOpenWriter={() => {
+              playClickSound();
+              setIsWritingBlog(true);
+            }}
+          />
+
+          {/* Tab 5: Terminal */}
+          <TerminalTab isActive={activeTab === 'terminal'} />
+
+          {/* Tab 6: Contact */}
+          <ContactTab
+            isActive={activeTab === 'contact'}
+            onShowToast={triggerToast}
+          />
+
+          {/* Bespoke Copyright Footer */}
+          <footer className="neo-footer">
+            <p>
+              © 2026 <strong>Rishabh Srivastava</strong>. Built with 100% Bespoke Neo-Brutalist Technical Architecture. All Rights Reserved.
+            </p>
+            <p style={{ fontSize: '0.72rem', color: 'var(--ink-muted)', marginTop: '4px' }}>
+              Domain:{' '}
+              <a href="https://rishabhsrivastava.in" style={{ textDecoration: 'underline' }}>
+                rishabhsrivastava.in
+              </a>{' '}
+              •{' '}
+            </p>
           </footer>
         </div>
       </main>
@@ -157,6 +189,20 @@ export default function HomePage() {
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
-    </div>
+
+      {/* Blog Reader & Writer Modals */}
+      <BlogModals
+        readingArticle={readingArticle}
+        onCloseReader={() => setReadingArticle(null)}
+        isWriting={isWritingBlog}
+        onCloseWriter={() => setIsWritingBlog(false)}
+        onPublishArticle={handlePublishBlog}
+      />
+
+      {/* Global Toast Notification */}
+      <div id="global-toast" className={`toast-msg ${toastMsg ? 'show' : ''}`}>
+        <span>⚡</span> <span>{toastMsg}</span>
+      </div>
+    </>
   );
 }

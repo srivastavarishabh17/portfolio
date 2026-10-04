@@ -107,9 +107,7 @@ export default function RootLayout({
       </head>
       <body>
         <CanvasBackground />
-        <div style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
