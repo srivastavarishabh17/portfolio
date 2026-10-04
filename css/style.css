@@ -173,25 +173,26 @@ img, svg {
 }
 
 /* -----------------------------------------------------------------------------
-   03. MAIN LAYOUT CONTAINER
+   03. MAIN LAYOUT CONTAINER (Expansive Full-Width Blueprint)
    ----------------------------------------------------------------------------- */
 main {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 0 24px 60px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px 32px 60px;
   display: flex;
-  gap: 30px;
+  gap: 28px;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1100px) {
   main {
     flex-direction: column;
-    margin: 20px auto;
-    padding: 0 16px 40px;
-    gap: 24px;
+    padding: 16px 16px 40px;
+    gap: 20px;
   }
 }
 
@@ -339,10 +340,10 @@ main {
    05. SIDEBAR (LEFT COLUMN)
    ----------------------------------------------------------------------------- */
 .sidebar {
-  width: 320px;
+  width: 340px;
   flex-shrink: 0;
   position: sticky;
-  top: 30px;
+  top: 20px;
   z-index: 10;
 }
 
@@ -375,23 +376,128 @@ main {
   margin-bottom: 20px;
 }
 
+/* Avatar Frame with Cyber Blueprint Studio Backdrop */
 .avatar-frame {
-  width: 140px;
-  height: 140px;
-  border-radius: var(--radius-lg);
+  width: 165px;
+  height: 165px;
+  border-radius: 20px;
   border: var(--border-ink);
   box-shadow: var(--shadow-hard);
   overflow: hidden;
-  background: var(--pastel-yellow);
+  position: relative;
+  background: #090e17; /* Deep cyber slate, seamlessly blends with transparent blazer */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.avatar-tech-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.avatar-mesh-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.15) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.avatar-spotlight {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(99, 102, 241, 0.3) 45%, transparent 75%);
+  filter: blur(14px);
+}
+
+.avatar-radar-ring {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+}
+
+.avatar-radar-ring.ring-1 {
+  width: 75px;
+  height: 75px;
+  animation: radarSpin 16s linear infinite;
+}
+
+.avatar-radar-ring.ring-2 {
+  width: 115px;
+  height: 115px;
+  border-style: dotted;
+  border-color: rgba(147, 197, 253, 0.28);
+  animation: radarSpinRev 24s linear infinite;
+}
+
+.avatar-radar-ring.ring-3 {
+  width: 155px;
+  height: 155px;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+@keyframes radarSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes radarSpinRev {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+.avatar-corner-cross {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: #38bdf8;
+  opacity: 0.7;
+  line-height: 1;
+}
+.avatar-corner-cross.top-left { top: 6px; left: 8px; }
+.avatar-corner-cross.top-right { top: 6px; right: 8px; }
+.avatar-corner-cross.bottom-left { bottom: 6px; left: 8px; }
+.avatar-corner-cross.bottom-right { bottom: 6px; right: 8px; }
+
+.avatar-code-tag {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 4px;
+  color: #7dd3fc;
+  z-index: 3;
+  white-space: nowrap;
+}
+
 .avatar-img {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform var(--transition-base);
 }
 
@@ -1328,9 +1434,15 @@ article.active {
 /* Capabilities 6-Grid */
 .capabilities-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   margin-bottom: 36px;
+}
+
+@media (max-width: 1200px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1377,9 +1489,15 @@ article.active {
 /* Attitude Manifesto 4-Grid */
 .manifesto-neo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   margin-bottom: 36px;
+}
+
+@media (max-width: 1300px) {
+  .manifesto-neo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1480,11 +1598,17 @@ article.active {
 
 .portfolio-bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
+  .portfolio-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
   .portfolio-bento-grid {
     grid-template-columns: 1fr;
   }
