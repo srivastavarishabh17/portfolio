@@ -309,396 +309,173 @@
       <article class="about active" data-page="about">
 
         <!-- =================================================================
-             FLAGSHIP SHOWCASE: KNOWLEDGE CHATOPS & CLOUD ARCHITECTURE
-             (Matches User Screenshot Layout Exactly)
+             VISUAL ARCHITECTURE & ENTERPRISE TECH STACK SHOWCASE
              ================================================================= -->
-        <section class="chatops-showcase-container">
+        <section class="architecture-showcase-container" style="margin-bottom: 32px;">
+          <div class="architecture-showcase-card"
+            style="background: var(--canvas-surface); border: var(--border-ink); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); overflow: hidden;">
+            <!-- Header Bar -->
+            <div class="mac-window-bar" style="background: var(--pastel-blue);">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="mac-window-title" style="color: #18181b; font-weight: 800;">
+                SYSTEM TOPOLOGY // HIGH-CONCURRENCY ENTERPRISE ARCHITECTURE
+              </span>
+              <span class="neo-pill mint" style="padding: 2px 8px; font-size: 0.65rem;">
+                ⚡ LIVE BLUEPRINT
+              </span>
+            </div>
 
-          <div class="chatops-header-area">
-            <h2 class="chatops-main-title">
-              <span class="chatops-deco-sparkle">✦</span>
-              Knowledge ChatOps
-              <span class="chatops-deco-sparkle">✦</span>
-            </h2>
-            <div>
-              <span class="chatops-subtitle-badge">FastAPI + Azure AI Search + Azure OpenAI</span>
+            <div style="padding: 24px;">
+              <div
+                style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+                <div>
+                  <h3
+                    style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: var(--ink-primary); display: flex; align-items: center; gap: 8px;">
+                    <span>✦</span> Distributed Cloud &amp; AI Data Flow <span>✦</span>
+                  </h3>
+                  <p style="color: var(--ink-secondary); font-size: 0.88rem; margin-top: 2px;">
+                    Engineered for sub-25ms synchronization, automated failover, and zero single points of failure.
+                  </p>
+                </div>
+
+                <!-- Verified Metrics Badges -->
+                <div style="display: flex; gap: 8px; flexWrap: wrap;">
+                  <span class="neo-pill yellow" style="font-weight: 700;">50K+/hr Relays</span>
+                  <span class="neo-pill mint" style="font-weight: 700;">&lt; 25ms WebSockets</span>
+                  <span class="neo-pill lavender" style="font-weight: 700;">99.98% SLA</span>
+                </div>
+              </div>
+
+              <!-- 4-Tier Architecture Flow Grid -->
+              <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; position: relative;">
+                <!-- Tier 1: Client & Edge Experience -->
+                <div
+                  style="background: var(--canvas-panel); border: var(--border-ink); border-radius: var(--radius-md); padding: 16px; display: flex; flexDirection: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span class="neo-pill blue" style="font-size: 0.68rem; font-weight: 800;">
+                      TIER 01 // EDGE &amp; UI
+                    </span>
+                    <span
+                      style="font-size: 0.72rem; color: #0284c7; font-family: var(--font-mono); font-weight: 700;">
+                      100/100 CWV
+                    </span>
+                  </div>
+                  <h4 style="font-size: 1rem; font-weight: 800; color: var(--ink-primary); margin: 0;">
+                    Client &amp; CDN Gateway
+                  </h4>
+                  <p style="font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; margin: 0;">
+                    Next.js 14 SSR frontends deployed with edge caching, Web Audio synthesizer, and responsive adaptive state.
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;">
+                    <span class="tech-chip highlight">Next.js 14</span>
+                    <span class="tech-chip">React 19</span>
+                    <span class="tech-chip">TypeScript</span>
+                    <span class="tech-chip">Cloudflare Edge</span>
+                  </div>
+                </div>
+
+                <!-- Tier 2: Real-Time Services & Asynchronous Queues -->
+                <div
+                  style="background: var(--canvas-panel); border: var(--border-ink); border-radius: var(--radius-md); padding: 16px; display: flex; flexDirection: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span class="neo-pill mint" style="font-size: 0.68rem; font-weight: 800;">
+                      TIER 02 // SERVICES
+                    </span>
+                    <span
+                      style="font-size: 0.72rem; color: #16a34a; font-family: var(--font-mono); font-weight: 700;">
+                      &lt; 25ms Latency
+                    </span>
+                  </div>
+                  <h4 style="font-size: 1rem; font-weight: 800; color: var(--ink-primary); margin: 0;">
+                    API Relays &amp; BullMQ
+                  </h4>
+                  <p style="font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; margin: 0;">
+                    Node.js &amp; FastAPI microservices, bi-directional WebSocket pipelines, and automated BullMQ job dispatchers.
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;">
+                    <span class="tech-chip highlight">Node.js</span>
+                    <span class="tech-chip highlight">BullMQ</span>
+                    <span class="tech-chip">FastAPI</span>
+                    <span class="tech-chip">WebSockets</span>
+                  </div>
+                </div>
+
+                <!-- Tier 3: High-Throughput Data & Caching -->
+                <div
+                  style="background: var(--canvas-panel); border: var(--border-ink); border-radius: var(--radius-md); padding: 16px; display: flex; flexDirection: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span class="neo-pill yellow" style="font-size: 0.68rem; font-weight: 800;">
+                      TIER 03 // PERSISTENCE
+                    </span>
+                    <span
+                      style="font-size: 0.72rem; color: #ca8a04; font-family: var(--font-mono); font-weight: 700;">
+                      Sub-ms Cache
+                    </span>
+                  </div>
+                  <h4 style="font-size: 1rem; font-weight: 800; color: var(--ink-primary); margin: 0;">
+                    PostgreSQL &amp; Redis Cluster
+                  </h4>
+                  <p style="font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; margin: 0;">
+                    Partitioned PostgreSQL with composite index tuning, Redis in-memory locks, and high-speed session management.
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;">
+                    <span class="tech-chip highlight">PostgreSQL</span>
+                    <span class="tech-chip highlight">Redis</span>
+                    <span class="tech-chip">MongoDB</span>
+                    <span class="tech-chip">Redlock</span>
+                  </div>
+                </div>
+
+                <!-- Tier 4: Generative AI & Autonomous Cloud -->
+                <div
+                  style="background: var(--canvas-panel); border: var(--border-ink); border-radius: var(--radius-md); padding: 16px; display: flex; flexDirection: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span class="neo-pill lavender" style="font-size: 0.68rem; font-weight: 800;">
+                      TIER 04 // AI &amp; CLOUD
+                    </span>
+                    <span
+                      style="font-size: 0.72rem; color: #9333ea; font-family: var(--font-mono); font-weight: 700;">
+                      Vector Grounded
+                    </span>
+                  </div>
+                  <h4 style="font-size: 1rem; font-weight: 800; color: var(--ink-primary); margin: 0;">
+                    GenAI &amp; Container Ops
+                  </h4>
+                  <p style="font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; margin: 0;">
+                    Gemini &amp; OpenAI LLMs with strict JSON schema validation, Azure AI Search vector RAG, and Docker CI/CD on Linux VPS.
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;">
+                    <span class="tech-chip highlight">OpenAI / Gemini</span>
+                    <span class="tech-chip">Docker</span>
+                    <span class="tech-chip">Azure AI Search</span>
+                    <span class="tech-chip">Jenkins CI/CD</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Flow Architecture Bar -->
+              <div
+                style="margin-top: 16px; padding: 12px 18px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span
+                    style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #00f0ff; box-shadow: 0 0 8px #00f0ff;"></span>
+                  <span
+                    style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-primary); font-weight: 700;">
+                    DATA PIPELINE FLOW: Client Request → Cloudflare Edge → Next.js 14 SSR → Node.js / BullMQ → Redis / Postgres → AI Inference
+                  </span>
+                </div>
+                <button class="neo-btn mint neo-btn-sm" onclick="navigateToPage('portfolio')">
+                  <span>Explore 16+ Production Architectures</span>
+                  <span>→</span>
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Architecture Canvas Wrapper with Flanking Nodes -->
-          <div class="architecture-diagram-wrapper">
-
-            <!-- Flanking Cloud Node: Left Top -->
-            <div class="cloud-node node-container-apps">
-              <div class="cloud-node-icon" style="background: var(--pastel-blue);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path
-                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                  </path>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                </svg>
-              </div>
-              <div class="cloud-node-text">Azure Container Apps</div>
-            </div>
-
-            <!-- Flanking Cloud Node: Left Bottom -->
-            <div class="cloud-node node-blob-storage">
-              <div class="cloud-node-icon" style="background: var(--pastel-yellow);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-              </div>
-              <div class="cloud-node-text">Blob Storage</div>
-            </div>
-
-            <!-- Flanking Cloud Node: Right Top -->
-            <div class="cloud-node node-ai-search">
-              <div class="cloud-node-icon" style="background: var(--pastel-mint);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </div>
-              <div class="cloud-node-text">AI Search</div>
-            </div>
-
-            <!-- Flanking Cloud Node: Right Bottom -->
-            <div class="cloud-node node-azure-openai">
-              <div class="cloud-node-icon" style="background: var(--pastel-lavender);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path
-                    d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z">
-                  </path>
-                  <path
-                    d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z">
-                  </path>
-                </svg>
-              </div>
-              <div class="cloud-node-text">Azure OpenAI</div>
-            </div>
-
-            <!-- Main Interactive Studio Window -->
-            <div class="chatops-window">
-              <!-- Window Chrome Bar -->
-              <div class="mac-window-bar">
-                <div class="mac-dots">
-                  <span class="mac-dot red"></span>
-                  <span class="mac-dot yellow"></span>
-                  <span class="mac-dot green"></span>
-                </div>
-                <div class="mac-window-title">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="9" y1="3" x2="9" y2="21"></line>
-                  </svg>
-                  <span>knowledge-chatops.internal.azure.mesh</span>
-                </div>
-                <div class="mac-window-actions">
-                  <span class="neo-pill mint" style="padding: 2px 8px; font-size: 0.7rem;">🟢 LIVE AGENT</span>
-                </div>
-              </div>
-
-              <!-- 3-Column Studio Grid -->
-              <div class="chatops-grid">
-
-                <!-- Column 1: Sub-Sidebar -->
-                <div class="chatops-subnav">
-                  <button class="chatops-nav-btn active" data-chatops-tab="chat">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Chat</span>
-                  </button>
-                  <button class="chatops-nav-btn" data-chatops-tab="documents">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                      <line x1="16" y1="13" x2="8" y2="13"></line>
-                      <line x1="16" y1="17" x2="8" y2="17"></line>
-                      <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                    <span>Documents</span>
-                  </button>
-                  <button class="chatops-nav-btn" data-chatops-tab="index">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                    <span>Index Status</span>
-                  </button>
-                  <button class="chatops-nav-btn" data-chatops-tab="dependencies">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <circle cx="18" cy="5" r="3"></circle>
-                      <circle cx="6" cy="12" r="3"></circle>
-                      <circle cx="18" cy="19" r="3"></circle>
-                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                    </svg>
-                    <span>Dependencies</span>
-                  </button>
-                  <button class="chatops-nav-btn" data-chatops-tab="health">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                    <span>Health</span>
-                  </button>
-                  <button class="chatops-nav-btn" data-chatops-tab="settings">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <circle cx="12" cy="12" r="3"></circle>
-                      <path
-                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                      </path>
-                    </svg>
-                    <span>Settings</span>
-                  </button>
-                </div>
-
-                <!-- Column 2: Central Chat / Q&A Area -->
-                <div class="chatops-main-panel">
-                  <!-- Header Banner -->
-                  <div class="panel-header-banner blue">
-                    <span>Ask internal knowledge</span>
-                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #1e3a8a;">RAG Pipeline
-                      v3.8</span>
-                  </div>
-
-                  <!-- Conversation Stream -->
-                  <div id="chatops-stream" class="chatops-conversation-stream">
-                    <!-- User Bubble -->
-                    <div class="chat-msg-user">
-                      <div class="chat-avatar-box">RS</div>
-                      <div class="chat-content-area">
-                        <div class="chat-prompt-text">What architecture does Rishabh build for high-throughput
-                          enterprise SaaS?</div>
-                        <div style="font-size: 0.72rem; color: var(--ink-muted); font-family: var(--font-mono);">Client
-                          Query • Authenticated Session</div>
-                      </div>
-                    </div>
-
-                    <!-- Bot Bubble -->
-                    <div class="chat-msg-bot">
-                      <div class="bot-avatar-box">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2.5">
-                          <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
-                          <rect x="4" y="8" width="16" height="12" rx="2"></rect>
-                          <circle cx="9" cy="13" r="1.5"></circle>
-                          <circle cx="15" cy="13" r="1.5"></circle>
-                          <line x1="8" y1="17" x2="16" y2="17"></line>
-                        </svg>
-                      </div>
-                      <div class="chat-content-area">
-                        <div class="bot-response-text">
-                          Rishabh architects decoupled systems with <strong>Next.js 14 SSR</strong> frontends,
-                          asynchronous <strong>Node.js &amp; FastAPI</strong> microservices, <strong>BullMQ +
-                            Redis</strong> message queues, and partitioned <strong>PostgreSQL</strong> databases. In
-                          production across high-scale distributed platforms, this stack sustains
-                          50,000+ operations/hr with 99.98% uptime SLA.
-                        </div>
-                        <div
-                          style="font-size: 0.72rem; color: #15803d; font-family: var(--font-mono); margin-top: 6px; font-weight: 700;">
-                          🟢 Grounded via Vector Hybrid Search • 0.04s latency</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Quick Topic Chips -->
-                  <div style="padding: 10px 16px; background: var(--canvas-panel); border-top: var(--border-ink-thin);">
-                    <div
-                      style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted); margin-bottom: 6px;">
-                      QUICK ARCHITECTURE QUERIES:</div>
-                    <div class="quick-prompt-chips">
-                      <button class="quick-chip-btn" data-topic="architecture">⚡ Concurrency &amp; Scale</button>
-                      <button class="quick-chip-btn" data-topic="rag">🤖 RAG &amp; Azure AI</button>
-                      <button class="quick-chip-btn" data-topic="seo">🚀 SEO/GEO Engine</button>
-                      <button class="quick-chip-btn" data-topic="stack">🛠️ Verified Tech Stack</button>
-                    </div>
-                  </div>
-
-                  <!-- Prompt Input Field -->
-                  <div
-                    style="padding: 12px 16px; background: var(--canvas-surface); border-top: var(--border-ink); display: flex; gap: 8px;">
-                    <input type="text" id="chatops-input" class="neo-input"
-                      placeholder="Ask about Rishabh's production architecture, RAG pipelines, or cloud systems..."
-                      style="border-radius: var(--radius-sm); font-size: 0.85rem;">
-                    <button id="chatops-send-btn" class="neo-btn mint neo-btn-sm" style="padding: 0 16px;">
-                      <span>Send</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                      </svg>
-                    </button>
-                  </div>
-
-                  <!-- Citations Panel -->
-                  <div class="citations-box">
-                    <div class="panel-header-banner mint">
-                      <span>Citations &amp; Source Artifacts</span>
-                      <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #166534;">Verified Vector
-                        Nodes</span>
-                    </div>
-                    <div id="chatops-citations-list" class="citations-list">
-                      <div class="citation-item">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                          <span class="citation-badge pdf">PDF</span>
-                          <span style="font-weight: 700; color: var(--ink-primary);">Aozo_Architecture_Spec.pdf</span>
-                        </div>
-                        <span style="color: var(--ink-muted); font-size: 0.72rem;">pp. 14-22 ↗</span>
-                      </div>
-                      <div class="citation-item">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                          <span class="citation-badge docx">DOCX</span>
-                          <span
-                            style="font-weight: 700; color: var(--ink-primary);">PostgreSQL_Sharding_Plan.docx</span>
-                        </div>
-                        <span style="color: var(--ink-muted); font-size: 0.72rem;">Section 4.2 ↗</span>
-                      </div>
-                      <div class="citation-item">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                          <span class="citation-badge txt">TXT</span>
-                          <span
-                            style="font-weight: 700; color: var(--ink-primary);">FastAPI_Vector_Search_Config.txt</span>
-                        </div>
-                        <span style="color: var(--ink-muted); font-size: 0.72rem;">Line 45 ↗</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Column 3: Right Telemetry & Operations Column -->
-                <div class="chatops-right-panel">
-
-                  <!-- Box 1: Upload Documents -->
-                  <div class="right-section-box">
-                    <div class="panel-header-banner yellow">
-                      <span>Upload documents</span>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="17 8 12 3 7 8"></polyline>
-                        <line x1="12" y1="3" x2="12" y2="15"></line>
-                      </svg>
-                    </div>
-                    <div class="upload-dropzone">
-                      <div id="chatops-upload-trigger" class="dropzone-circle"
-                        title="Click to test document ingestion simulation">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="3">
-                          <line x1="12" y1="5" x2="12" y2="19"></line>
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      </div>
-                      <p style="font-size: 0.75rem; color: var(--ink-muted); font-family: var(--font-mono);">Drop
-                        PDF/DOCX or click plus to ingest</p>
-                      <button id="sim-upload-btn" class="neo-btn yellow neo-btn-sm"
-                        onclick="document.getElementById('chatops-upload-trigger').click();" style="width: 100%;">
-                        <span>Upload &amp; Index</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Box 2: Indexed Documents -->
-                  <div class="right-section-box">
-                    <div class="panel-header-banner mint">
-                      <span>Indexed documents</span>
-                      <span style="font-family: var(--font-mono); font-size: 0.7rem; color: #166534;">Vector
-                        Embeddings</span>
-                    </div>
-                    <div id="chatops-indexed-docs" class="indexed-docs-list">
-                      <div class="doc-row">
-                        <div class="doc-name-group">
-                          <span class="citation-badge pdf">PDF</span>
-                          <span style="font-weight: 700; color: var(--ink-primary);">Enterprise_CRM_Spec.pdf</span>
-                        </div>
-                        <span class="trash-btn" title="Delete Index Node"
-                          onclick="this.closest('.doc-row').remove(); if(window.showToast) window.showToast('Document removed from index.');">🗑️</span>
-                      </div>
-                      <div class="doc-row">
-                        <div class="doc-name-group">
-                          <span class="citation-badge docx">DOCX</span>
-                          <span style="font-weight: 700; color: var(--ink-primary);">Microservices_SLAs.docx</span>
-                        </div>
-                        <span class="trash-btn" title="Delete Index Node"
-                          onclick="this.closest('.doc-row').remove(); if(window.showToast) window.showToast('Document removed from index.');">🗑️</span>
-                      </div>
-                      <div class="doc-row">
-                        <div class="doc-name-group">
-                          <span class="citation-badge txt">TXT</span>
-                          <span style="font-weight: 700; color: var(--ink-primary);">Redis_Cluster_Topology.txt</span>
-                        </div>
-                        <span class="trash-btn" title="Delete Index Node"
-                          onclick="this.closest('.doc-row').remove(); if(window.showToast) window.showToast('Document removed from index.');">🗑️</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Box 3: Health Status Indicators -->
-                  <div class="right-section-box">
-                    <div class="panel-header-banner blue">
-                      <span>Health &amp; Telemetry</span>
-                      <span style="font-family: var(--font-mono); font-size: 0.7rem; color: #1e3a8a;">SLA 99.98%</span>
-                    </div>
-                    <div class="health-metrics-list">
-                      <div class="health-row">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                          </svg>
-                          <span>PostgreSQL Core</span>
-                        </div>
-                        <div class="health-status-badge">
-                          <span>✓ 12ms</span>
-                        </div>
-                      </div>
-
-                      <div class="health-row">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                          </svg>
-                          <span>Azure AI Search</span>
-                        </div>
-                        <div class="health-status-badge">
-                          <span>✓ Synced</span>
-                        </div>
-                      </div>
-
-                      <div class="health-row">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                          </svg>
-                          <span>Azure OpenAI LLM</span>
-                        </div>
-                        <div class="health-status-badge">
-                          <span>✓ Ready</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
         </section>
 
         <!-- =================================================================
